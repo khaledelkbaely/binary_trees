@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+
 /**
 * is_perfect - measures size of binary tree
 * 
@@ -8,14 +9,14 @@
 */
 int is_perfect(const binary_tree_t *tree)
 {
-  int left = 0, right 0;
+  int left = 0, right = 0;
   if (tree == NULL)
     return (0);
 
   if (tree->left && tree->right)
   {
-    left = 1 + is_full(tree->left);
-    right = 1 + is_full(tree->right);
+    left = 1 + is_perfect(tree->left);
+    right = 1 + is_perfect(tree->right);
     if (right == left && right && left)
       return (right);
     return (0);
