@@ -9,9 +9,13 @@
 *
 * Return: pointer to the lowest common ancestor node of the two given nodes
 */
-binary_tree_t *binary_trees_ancestor(binary_tree_t *first, binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+				     const binary_tree_t *second)
 {
-	binary_tree_t *p1, *p2;
+	const binary_tree_t *p1, *p2;
+
+	if (first == NULL || second == NULL)
+		return (NULL);
 
 	p1 = first;
 	while (p1)
@@ -19,9 +23,8 @@ binary_tree_t *binary_trees_ancestor(binary_tree_t *first, binary_tree_t *second
 		p2 = second;
 		while (p2)
 		{
-			printf("p1-> %d p2-> %d\n", p1->n, p2->n);
 			if (p1 == p2)
-				return (p1);
+				return ((binary_tree_t *)p1);
 			p2 = p2->parent;
 		}
 		p1 = p1->parent;
