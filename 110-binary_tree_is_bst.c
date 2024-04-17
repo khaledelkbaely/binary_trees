@@ -12,12 +12,13 @@
 int is_valid_bst(binary_tree_t *root, binary_tree_t *low, binary_tree_t *high)
 {
 	if (root == NULL)
-		return (1);
+	return (1);
 
 	if ((low && low->n >= root->n) || (high && high->n <= root->n))
 		return (0);
 
-	return (is_valid_bst(root->left, low, root) && is_valid_bst(root->right, root, high));
+	return (is_valid_bst(root->left, low, root) &&
+		is_valid_bst(root->right, root, high));
 }
 
 /**
@@ -31,5 +32,5 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
-	return is_valid_bst((binary_tree_t *)tree, NULL, NULL);
+	return (is_valid_bst((binary_tree_t *)tree, NULL, NULL));
 }
