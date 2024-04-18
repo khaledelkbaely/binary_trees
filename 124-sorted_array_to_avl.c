@@ -20,6 +20,8 @@ avl_t *insert(avl_t *tree, avl_t *parent, int *array, int start, int end)
 
 	mid = (start + end) / 2;
 	tree = binary_tree_node(parent, array[mid]);
+	if (tree == NULL)
+		return (NULL);
 	tree->right = insert(tree->right, tree, array, mid + 1, end);
 	tree->left = insert(tree->left, tree, array, start, mid - 1);
 	return (tree);
